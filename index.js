@@ -3,6 +3,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 // Import Routes
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // Route Middlewares
 app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
